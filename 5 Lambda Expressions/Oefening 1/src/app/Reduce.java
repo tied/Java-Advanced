@@ -1,31 +1,34 @@
 package app;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Reduce
  */
 @FunctionalInterface
 public interface Reduce<T> {
 
-    int map(T source);
+    boolean map(T source);
 
-    public static <U> Student[] filter(Student[] list, Reduce<? super U> mapper) {
-        Student[] output = new Student[list.length];
+    public static <T> List<T> filter(List<T> oud, Reduce<T> functie) {
+        List<T> nieuw = new ArrayList();
 
-        for (int i = 0; i < list.length; i++) {
-            output[i] = mapper.map(list[i]);
+        for (T item : oud) {
+            if (functie.map(item)) {
+                nieuw.add(item);
+            }
         }
 
-        return output;
-
+        return nieuw;
     }
-
-    public static <U> int[] mapToInt(U[] list, Reduce<? super U> mapper) {
-        int[] mappedValues = new int[list.length];
-
-        for (int i = 0; i < list.length; i++) {
-            mappedValues[i] = mapper.map(list[i]);
-        }
-
-        return mappedValues;
-    }
+    /*
+     * public static <U> int[] mapToInt(U[] list, Reduce<? super U> mapper) { int[]
+     * mappedValues = new int[list.length];
+     * 
+     * for (int i = 0; i < list.length; i++) { mappedValues[i] =
+     * mapper.map(list[i]); }
+     * 
+     * return mappedValues; }
+     */
 }
