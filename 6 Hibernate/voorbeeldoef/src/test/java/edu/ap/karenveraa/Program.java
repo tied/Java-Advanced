@@ -1,6 +1,6 @@
 package edu.ap.karenveraa;
 
-import org.hsqldb.Session;
+import org.hibernate.Session;
 
 public class Program {
     public static void main(String[] args) {
