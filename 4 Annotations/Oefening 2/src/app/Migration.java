@@ -1,19 +1,19 @@
 package app;
 
-import java.lang.annotation.Repeatable;
+//import java.lang.annotation.Repeatable;
 
 /**
  * Migration
  */
 
-@Repeatable(Migrations.class)
+// @Repeatable(Migrations.class)
 public @interface Migration {
 
     Team team();
 
     int phase() default 1;
 
-    Class<? extends Throwable>[] allowedExecptions() default { Exception.class };
+    Class<? extends Throwable>[] allowedExceptions() default { Exception.class };
 
     String comment() default "Karen";
 }
