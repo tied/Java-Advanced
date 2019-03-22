@@ -6,6 +6,6 @@ package edu.ap.karenveraa;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        // Battle bat = new Battle();
     }
 }

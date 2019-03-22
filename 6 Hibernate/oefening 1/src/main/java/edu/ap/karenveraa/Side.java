@@ -18,7 +18,12 @@ public class Side {
     private EnumType type;
     private EnumOutcome outcome;
 
-    public Side() {
+    public Side(int pID, String pBattle, String pHouse, EnumType pType, EnumOutcome pOut) {
+        this.ID = pID;
+        this.battle = pBattle;
+        this.house = pHouse;
+        this.type = pType;
+        this.outcome = pOut;
     }
 
     /**

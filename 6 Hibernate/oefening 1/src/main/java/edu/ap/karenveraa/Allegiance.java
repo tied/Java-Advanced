@@ -8,7 +8,9 @@ public class Allegiance {
     private String house; // FK: House.name
     private String karakter; // FK: Karakter.name
 
-    public Allegiance() {
+    public Allegiance(String pHouse, String pMens) {
+        this.house = pHouse;
+        this.karakter = pMens;
     }
 
     /**

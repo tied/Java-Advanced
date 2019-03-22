@@ -8,7 +8,9 @@ public class Commands {
     private int side; // FK: Side.id
     private String karakter; // FK: karakter.name
 
-    public Commands() {
+    public Commands(int pSide, String pKarakter) {
+        this.side = pSide;
+        this.karakter = pKarakter;
     }
 
     /**

@@ -9,7 +9,10 @@ public class Battle {
     private int year;
     private String type;
 
-    public Battle() {
+    public Battle(String pName, int pYear, String pType) {
+        this.name = pName;
+        this.year = pYear;
+        this.type = pType;
     }
 
     /**

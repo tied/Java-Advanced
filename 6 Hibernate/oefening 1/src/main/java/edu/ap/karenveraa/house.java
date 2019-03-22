@@ -7,7 +7,8 @@ public class House {
 
     private String name; // PK
 
-    public House() {
+    public House(String pName) {
+        this.name = pName;
     }
 
     /**
