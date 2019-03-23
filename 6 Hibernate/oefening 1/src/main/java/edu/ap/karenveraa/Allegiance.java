@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * Allegiance
  */
@@ -8,9 +10,19 @@ public class Allegiance {
     private String house; // FK: House.name
     private String karakter; // FK: Karakter.name
 
-    public Allegiance(String pHouse, String pMens) {
-        this.house = pHouse;
-        this.karakter = pMens;
+    public Allegiance(House pHouse, Karakter pMens) {
+        this.house = pHouse.getName();
+        this.karakter = pMens.getName();
+    }
+
+    public void StoreAndSafe(House pHouse, Karakter pMens) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Allegiance allegiance = new Allegiance(pHouse, pMens);
+        session.save(allegiance);
+
+        session.getTransaction().commit();
     }
 
     /**

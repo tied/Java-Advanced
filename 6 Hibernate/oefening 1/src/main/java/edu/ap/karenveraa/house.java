@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * house
  */
@@ -9,6 +11,16 @@ public class House {
 
     public House(String pName) {
         this.name = pName;
+    }
+
+    public void StoreAndSafe(String pName) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        House house = new House(pName);
+        session.save(house);
+
+        session.getTransaction().commit();
     }
 
     /**

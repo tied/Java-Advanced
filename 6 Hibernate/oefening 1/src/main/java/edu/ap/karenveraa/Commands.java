@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * Commands
  */
@@ -8,9 +10,19 @@ public class Commands {
     private int side; // FK: Side.id
     private String karakter; // FK: karakter.name
 
-    public Commands(int pSide, String pKarakter) {
-        this.side = pSide;
-        this.karakter = pKarakter;
+    public Commands(Side pSide, Karakter pKarakter) {
+        this.side = pSide.getID();
+        this.karakter = pKarakter.getName();
+    }
+
+    public void StoreAndSafe(Side pSide, Karakter pKarakter) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Commands comm = new Commands(pSide, pKarakter);
+        session.save(comm);
+
+        session.getTransaction().commit();
     }
 
     /**

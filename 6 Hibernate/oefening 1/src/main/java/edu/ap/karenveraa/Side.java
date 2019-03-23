@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * Side
  */
@@ -18,12 +20,22 @@ public class Side {
     private EnumType type;
     private EnumOutcome outcome;
 
-    public Side(int pID, String pBattle, String pHouse, EnumType pType, EnumOutcome pOut) {
+    public Side(int pID, Battle pBattle, House pHouse, EnumType pType, EnumOutcome pOut) {
         this.ID = pID;
-        this.battle = pBattle;
-        this.house = pHouse;
+        this.battle = pBattle.getName();
+        this.house = pHouse.getName();
         this.type = pType;
         this.outcome = pOut;
+    }
+
+    public void StoreAndSafe(int pID, Battle pBattle, House pHouse, EnumType pType, EnumOutcome pOut) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Side side = new Side(pID, pBattle, pHouse, pType, pOut);
+        session.save(side);
+
+        session.getTransaction().commit();
     }
 
     /**

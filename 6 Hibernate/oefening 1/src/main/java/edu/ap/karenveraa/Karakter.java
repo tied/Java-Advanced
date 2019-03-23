@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * Karakter
  */
@@ -10,7 +12,21 @@ public class Karakter {
     private char gender;
     private String nobility;
 
-    public Karakter() {
+    public Karakter(String pName, int pDeathYear, char pGender, String pNobility) {
+        this.name = pName;
+        this.deathYear = pDeathYear;
+        this.gender = pGender;
+        this.nobility = pNobility;
+    }
+
+    public void StoreAndSafe(String pName, int pDeathYear, char pGender, String pNobility) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Karakter kar = new Karakter(pName, pDeathYear, pGender, pNobility);
+        session.save(kar);
+
+        session.getTransaction().commit();
     }
 
     /**

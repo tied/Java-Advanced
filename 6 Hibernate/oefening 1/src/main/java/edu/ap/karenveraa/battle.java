@@ -1,5 +1,7 @@
 package edu.ap.karenveraa;
 
+import org.hibernate.Session;
+
 /**
  * battle
  */
@@ -13,6 +15,16 @@ public class Battle {
         this.name = pName;
         this.year = pYear;
         this.type = pType;
+    }
+
+    public void StoreAndSafe(String pName, int pYear, String pType) {
+        Session session = HibernateUtil.getSessionFactory().getCurrentSession();
+        session.beginTransaction();
+
+        Battle battle = new Battle(pName, pYear, pType);
+        session.save(battle);
+
+        session.getTransaction().commit();
     }
 
     /**
