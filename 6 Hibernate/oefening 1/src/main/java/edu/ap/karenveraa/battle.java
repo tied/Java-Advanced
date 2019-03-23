@@ -17,11 +17,11 @@ public class Battle {
         this.type = pType;
     }
 
-    public void StoreAndSafe(String pName, int pYear, String pType) {
+    public void StoreAndSafe() {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
 
-        Battle battle = new Battle(pName, pYear, pType);
+        Battle battle = new Battle(this.name, this.year, this.type);
         session.save(battle);
 
         session.getTransaction().commit();
