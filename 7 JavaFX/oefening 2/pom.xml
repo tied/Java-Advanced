@@ -99,7 +99,7 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <mainClass>be.ap.javadv.javafx.Timesup</mainClass>
+                        <mainClass>Partitions</mainClass>
                     </configuration>
                 </plugin>
             </plugins>

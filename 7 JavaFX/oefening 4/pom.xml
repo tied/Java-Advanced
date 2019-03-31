@@ -95,6 +95,9 @@
                             </goals>
                         </execution>
                     </executions>
+                    <configuration>
+                        <mainClass>Mondrian</mainClass>
+                    </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
