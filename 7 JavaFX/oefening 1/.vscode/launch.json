@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ProcessViewer",
+            "request": "launch",
+            "mainClass": "ProcessViewer",
+            "projectName": "taskmanager"
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="edup.ap.entity.Character" table="got_character">
+        <id name="name" column="Name">
+            <generator class="native"/>
+        </id>
+
+        <property name="deathYear" column="DeathYear"/>
+        <property name="gender" column="Gender"/>
+        <property name="nobility" column="Nobility"/>
+    </class>
+</hibernate-mapping>

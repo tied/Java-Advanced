@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="edup.ap.entity.Battle" table="battle">
+        <id name="name" column="Name">
+            <generator class="native"/>
+        </id>
+
+        <property name="year" column="Year"/>
+        <property name="type" column="Type"/>
+    </class>
+</hibernate-mapping>
