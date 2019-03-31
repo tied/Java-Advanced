@@ -41,7 +41,7 @@ public class SidePane extends Group {
 				"file:///C:/Users/karen/Music/7_rings.mp3"));
 		podcasts.add(new Podcast("Ariana Grande - Bloodline",
 				"file:///C:/Users/karen/Pictures/Wallpapers/RedBudsFlowers.jpg",
-				"file:///C:/Users/karen/Music/bloodlines.mp3"));
+				"file:///C:/Users/karen/Music/bloodline.mp3"));
 
 		ObservableList<Podcast> data = FXCollections.observableArrayList(podcasts);
 
